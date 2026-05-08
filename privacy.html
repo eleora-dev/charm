@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Eleòra CharM — Privacy Policy</title>
+
+  <style>
+    :root {
+      --orange: #ffa726;
+      --text: #1a1a1a;
+      --muted: #666;
+      --border: #e8e8e8;
+      --bg: #fff;
+      --card: #fafafa;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --text: #eee;
+        --muted: #999;
+        --border: #333;
+        --bg: #1e1e1e;
+        --card: #252525;
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      padding: 0 16px 64px;
+    }
+
+    header {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 48px 0 32px;
+      border-bottom: 2px solid var(--orange);
+      margin-bottom: 40px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 12px;
+    }
+
+    .brand-logo {
+      height: 42px;
+      display: block;
+    }
+
+    .brand-product {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 30px;
+      font-weight: 700;
+      color: var(--muted);
+      letter-spacing: 2px;
+      transform: translateY(3px);
+      margin-left: 8px;
+    }
+
+    .meta {
+      font-family: system-ui, sans-serif;
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    main {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    section {
+      margin-bottom: 40px;
+    }
+
+    .lang-tag {
+      display: inline-block;
+      font-family: system-ui, sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--orange);
+      border: 1px solid var(--orange);
+      border-radius: 4px;
+      padding: 2px 7px;
+      margin-bottom: 16px;
+    }
+
+    h2 {
+      font-size: 20px;
+      font-weight: normal;
+      margin-bottom: 12px;
+    }
+
+    p {
+      font-size: 16px;
+      margin-bottom: 12px;
+    }
+
+    a {
+      color: var(--orange);
+    }
+
+    code {
+      font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
+      font-size: 0.92em;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--orange);
+      border-radius: 6px;
+      padding: 16px 20px;
+      margin-top: 16px;
+      margin-bottom: 16px;
+      font-family: system-ui, sans-serif;
+      font-size: 14px;
+    }
+
+    .card ul {
+      list-style: none;
+    }
+
+    .card ul li {
+      padding: 6px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      gap: 10px;
+    }
+
+    .card ul li:last-child {
+      border-bottom: none;
+    }
+
+    .card ul li::before {
+      content: "→";
+      color: var(--orange);
+      flex-shrink: 0;
+    }
+
+    .permission-name {
+      font-weight: 600;
+      min-width: 160px;
+      flex-shrink: 0;
+    }
+
+    .permission-reason {
+      color: var(--muted);
+    }
+
+    .source-note {
+      margin-top: 16px;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 48px 0;
+    }
+
+    footer {
+      max-width: 680px;
+      margin: 0 auto;
+      font-family: system-ui, sans-serif;
+      font-size: 12px;
+      color: var(--muted);
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">
+    <img src="assets/eleora-logo-inline.png" alt="Eleòra" class="brand-logo">
+    <span class="brand-product">CharM</span>
+  </div>
+
+  <p class="meta">Privacy Policy · Last updated: May 2026</p>
+</header>
+
+<main>
+
+  <!-- ENGLISH -->
+  <section>
+    <div class="lang-tag">English</div>
+    <h2>Privacy Policy</h2>
+
+    <p>Eleòra CharM is an emoji and special character picker for Linux/KDE. It lets you search, copy and optionally paste emoji, symbols, punctuation, math characters, Greek letters and other Unicode characters.</p>
+
+    <p><strong>This application does not collect, transmit, sell or share any personal data.</strong> It works locally on your computer. No selected characters, search terms, clipboard contents or usage data are sent anywhere.</p>
+
+    <p>CharM stores only the small amount of local data needed for its own interface:</p>
+
+    <div class="card">
+      <ul>
+        <li>
+          <span class="permission-name">Configuration</span>
+          <span class="permission-reason">Stored locally in <code>~/.config/emojipicker/config.json</code>. It may include the hotkey, button size, grid columns, recent-list limit and auto-paste preference.</span>
+        </li>
+        <li>
+          <span class="permission-name">Recent characters</span>
+          <span class="permission-reason">Stored locally in <code>~/.config/emojipicker/recent.json</code>. This list contains only characters selected through the picker and can be cleared from the app.</span>
+        </li>
+        <li>
+          <span class="permission-name">Clipboard</span>
+          <span class="permission-reason">When you select a character, CharM writes that character to the clipboard. It does not read clipboard contents.</span>
+        </li>
+        <li>
+          <span class="permission-name">Local assets</span>
+          <span class="permission-reason">Twemoji PNG files and optional local fonts are loaded from the app folder. They are not downloaded at runtime.</span>
+        </li>
+      </ul>
+    </div>
+
+    <p class="source-note">Some optional integrations are used only to make opening and pasting more convenient:</p>
+
+    <div class="card">
+      <ul>
+        <li>
+          <span class="permission-name">Global hotkey</span>
+          <span class="permission-reason"><code>pynput</code> listens locally for the configured shortcut, normally <code>Ctrl+Alt+E</code>. The listener is used only to show or hide the picker.</span>
+        </li>
+        <li>
+          <span class="permission-name">X11 auto-paste</span>
+          <span class="permission-reason"><code>xdotool</code> may be used to remember the previously focused window ID and send <code>Ctrl+V</code>. The window ID is kept in memory only.</span>
+        </li>
+        <li>
+          <span class="permission-name">Wayland shortcut</span>
+          <span class="permission-reason"><code>--show</code> uses a per-user Unix socket at <code>/tmp/emojipicker_&lt;uid&gt;.sock</code>. The socket accepts only a simple <code>show</code> command.</span>
+        </li>
+        <li>
+          <span class="permission-name">External links</span>
+          <span class="permission-reason">Privacy, license, issue and developer links open in the browser only when you click them.</span>
+        </li>
+      </ul>
+    </div>
+
+    <p>CharM does not require root privileges and does not use <code>pkexec</code>. It performs no analytics, no tracking and no background network requests. The source code is publicly available on <a href="https://github.com/eleora-dev/charm" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ITALIAN -->
+  <section>
+    <div class="lang-tag">Italiano</div>
+    <h2>Informativa sulla Privacy</h2>
+
+    <p>Eleòra CharM è un selettore di emoji e caratteri speciali per Linux/KDE. Permette di cercare, copiare e opzionalmente incollare emoji, simboli, punteggiatura, caratteri matematici, lettere greche e altri caratteri Unicode.</p>
+
+    <p><strong>Questa applicazione non raccoglie, trasmette, vende o condivide alcun dato personale.</strong> Funziona localmente sul computer dell'utente. Nessun carattere selezionato, termine di ricerca, contenuto degli appunti o dato d'uso viene inviato altrove.</p>
+
+    <p>CharM salva solo i piccoli dati locali necessari al funzionamento della propria interfaccia:</p>
+
+    <div class="card">
+      <ul>
+        <li>
+          <span class="permission-name">Configurazione</span>
+          <span class="permission-reason">Salvata localmente in <code>~/.config/emojipicker/config.json</code>. Può includere scorciatoia, dimensione dei pulsanti, colonne della griglia, limite dei recenti e preferenza di auto-paste.</span>
+        </li>
+        <li>
+          <span class="permission-name">Caratteri recenti</span>
+          <span class="permission-reason">Salvati localmente in <code>~/.config/emojipicker/recent.json</code>. L'elenco contiene solo i caratteri selezionati dal picker e può essere cancellato dall'app.</span>
+        </li>
+        <li>
+          <span class="permission-name">Appunti</span>
+          <span class="permission-reason">Quando l'utente seleziona un carattere, CharM scrive quel carattere negli appunti. Non legge il contenuto degli appunti.</span>
+        </li>
+        <li>
+          <span class="permission-name">Asset locali</span>
+          <span class="permission-reason">I PNG Twemoji e gli eventuali font locali vengono caricati dalla cartella dell'app. Non vengono scaricati a runtime.</span>
+        </li>
+      </ul>
+    </div>
+
+    <p class="source-note">Alcune integrazioni opzionali vengono usate solo per rendere più comoda l'apertura o l'incolla:</p>
+
+    <div class="card">
+      <ul>
+        <li>
+          <span class="permission-name">Scorciatoia globale</span>
+          <span class="permission-reason"><code>pynput</code> ascolta localmente la scorciatoia configurata, normalmente <code>Ctrl+Alt+E</code>. Il listener serve solo ad aprire o chiudere il picker.</span>
+        </li>
+        <li>
+          <span class="permission-name">Auto-paste X11</span>
+          <span class="permission-reason"><code>xdotool</code> può essere usato per ricordare l'ID della finestra precedente e inviare <code>Ctrl+V</code>. L'ID della finestra resta solo in memoria.</span>
+        </li>
+        <li>
+          <span class="permission-name">Scorciatoia Wayland</span>
+          <span class="permission-reason"><code>--show</code> usa un socket Unix per utente in <code>/tmp/emojipicker_&lt;uid&gt;.sock</code>. Il socket accetta solo un semplice comando <code>show</code>.</span>
+        </li>
+        <li>
+          <span class="permission-name">Link esterni</span>
+          <span class="permission-reason">I link a privacy, licenza, issue e sviluppatore vengono aperti nel browser solo quando l'utente li clicca.</span>
+        </li>
+      </ul>
+    </div>
+
+    <p>CharM non richiede privilegi root e non usa <code>pkexec</code>. Non effettua analisi, tracciamento o richieste di rete in background. Il codice sorgente è disponibile pubblicamente su <a href="https://github.com/eleora-dev/charm" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>
+  </section>
+
+</main>
+
+<footer>
+  <p>Eleòra CharM · Gerardo Perilli ·
+    <a href="mailto:gerardo.perilli@gmail.com">email</a> ·
+    <a href="https://github.com/eleora-dev/charm" target="_blank" rel="noopener noreferrer">GitHub</a>
+  </p>
+</footer>
+
+</body>
+</html>
