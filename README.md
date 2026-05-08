@@ -162,6 +162,17 @@ Full privacy policy: [eleora-dev.github.io/charm/privacy.html](https://eleora-de
 
 ---
 
+## Third-party assets
+
+CharM uses local emoji graphics from [Twemoji](https://github.com/twitter/twemoji).
+
+Twemoji graphics are licensed under CC-BY 4.0.
+Twemoji code is licensed under the MIT License.
+
+Copyright Twitter, Inc. and other contributors.
+
+---
+
 ## License
 
 MIT License — see [LICENSE](LICENSE) for details.
