@@ -81,13 +81,13 @@ APP_LANG = detect_app_language()
 
 STRINGS = {
     LANG_EN: {
-        "header_title": f"{DEV_NAME} {APP_NAME} v{APP_VERSION.split('-', 1)[0]}",
-        "window_title": f"{DEV_NAME} {APP_NAME}",
+        "header_title": f"{DEV_NAME} {APP_NAME}",
+        "window_title": f"{DEV_NAME} {APP_NAME} v{APP_VERSION.split('-', 1)[0]}",
         "hotkey_badge": APP_HOTKEY_DISPLAY,
         "clear_recent_button": "Clear Recent",
         "clear_recent_tooltip": "Clear the history of recently used emoji",
         "clear_recent_done": "Recent history cleared",
-        "recent_empty": "No recent emoji yet.\nPick something to see it here.",
+        "recent_empty": "No recent emoji yet.\nUse a few and they’ll appear here.",
         "search_placeholder": "Search emoji or character…",
         "no_results": "No results",
         "service_privacy": "Privacy",
@@ -156,13 +156,13 @@ STRINGS = {
         "category_specials": "Special",
     },
     LANG_IT: {
-        "header_title": f"{DEV_NAME} {APP_NAME} v{APP_VERSION.split('-', 1)[0]}",
-        "window_title": f"{DEV_NAME} {APP_NAME}",
+        "header_title": f"{DEV_NAME} {APP_NAME}",
+        "window_title": f"{DEV_NAME} {APP_NAME} v{APP_VERSION.split('-', 1)[0]}",
         "hotkey_badge": APP_HOTKEY_DISPLAY,
         "clear_recent_button": "Cancella Recenti",
         "clear_recent_tooltip": "Cancella la cronologia degli emoji usati di recente",
         "clear_recent_done": "Cronologia Recenti cancellata",
-        "recent_empty": "Nessun emoji recente.\nSeleziona qualcosa per vederlo qui.",
+        "recent_empty": "Nessun emoji recente.\nUsane qualcuno e lo vedrai comparire qui.",
         "search_placeholder": "Cerca emoji o carattere…",
         "no_results": "Nessun risultato",
         "service_privacy": "Privacy",
@@ -355,7 +355,7 @@ SESSION_TYPE = os.environ.get("XDG_SESSION_TYPE", "x11").lower()
 DEFAULT_CONFIG = {
     "hotkey":       APP_HOTKEY_CONFIG,
     "btn_size":     42,
-    "grid_cols":    11,
+    "grid_cols":    13,
     "recent_max":   36,
     "auto_paste":   True,
 }
