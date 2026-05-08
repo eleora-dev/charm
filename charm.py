@@ -1501,6 +1501,30 @@ def app_window_icon() -> QIcon:
     return QIcon()
 
 
+def app_header_icon_pixmap(size: int = 28) -> QPixmap:
+    """Return a sharp app icon pixmap for the header."""
+    source = QPixmap(APP_ICON_RESOURCE)
+
+    if source.isNull():
+        source = app_window_icon().pixmap(128, 128)
+
+    if source.isNull():
+        return QPixmap()
+
+    screen = QApplication.primaryScreen()
+    dpr = screen.devicePixelRatio() if screen else 1.0
+    physical_size = int(round(size * dpr))
+
+    px = source.scaled(
+        physical_size,
+        physical_size,
+        Qt.AspectRatioMode.KeepAspectRatio,
+        Qt.TransformationMode.SmoothTransformation,
+    )
+    px.setDevicePixelRatio(dpr)
+    return px
+
+
 def _blank_pixmap(size: int) -> QPixmap:
     px = QPixmap(size, size)
     px.fill(Qt.GlobalColor.transparent)
@@ -1681,19 +1705,19 @@ class EmojiPickerWindow(QWidget):
         hdr.setSpacing(6)
 
         title_icon = QPushButton()
-        title_icon.setFixedSize(22, 22)
+        title_icon.setFixedSize(32, 32)
         title_icon.setFlat(True)
         title_icon.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         title_icon.setCursor(Qt.CursorShape.PointingHandCursor)
         title_icon.setToolTip(tr("title_icon_tooltip"))
         title_icon.setStyleSheet(icon_button_style())
-        title_px = app_window_icon().pixmap(22, 22)
+
+        title_px = app_header_icon_pixmap(28)
         if not title_px.isNull():
             title_icon.setIcon(QIcon(title_px))
-            title_icon.setIconSize(QSize(22, 22))
+            title_icon.setIconSize(QSize(28, 28))
         else:
             title_icon.setText(APP_ICON_CHAR)
-        title_icon.clicked.connect(lambda: QDesktopServices.openUrl(QUrl(DEV_URL)))
 
         title = QLabel(tr("header_title"))
         title.setStyleSheet(f"color: {ui_color('text')};")
