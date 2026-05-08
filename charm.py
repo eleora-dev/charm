@@ -81,8 +81,8 @@ APP_LANG = detect_app_language()
 
 STRINGS = {
     LANG_EN: {
-        "header_title": f"{APP_NAME} v{APP_VERSION.split('-', 1)[0]}",
-        "window_title": APP_NAME,
+        "header_title": f"{DEV_NAME} {APP_NAME} v{APP_VERSION.split('-', 1)[0]}",
+        "window_title": f"{DEV_NAME} {APP_NAME}",
         "hotkey_badge": APP_HOTKEY_DISPLAY,
         "clear_recent_button": "Clear Recent",
         "clear_recent_tooltip": "Clear the history of recently used emoji",
@@ -96,7 +96,7 @@ STRINGS = {
         "service_privacy_tooltip": "Privacy policy",
         "service_license_tooltip": "MIT License",
         "service_issue_tooltip": "Report an issue on GitHub",
-        "tray_tooltip": f"{APP_NAME}  [{APP_HOTKEY_DISPLAY}]",
+        "tray_tooltip": f"{DEV_NAME} {APP_NAME}  [{APP_HOTKEY_DISPLAY}]",
         "tray_open": f"Open {APP_NAME}",
         "tray_paste_info": f"{APP_HOTKEY_DISPLAY} • paste: {{method}}",
         "title_icon_tooltip": f"{DEV_NAME} on GitHub",
@@ -2115,11 +2115,13 @@ def start_socket_server():
 # ── MAIN ─────────────────────────────────────────────────────────────────────
 
 def main():
-    # ── --show handling: notify the existing instance ──────────────
-    if "--show" in sys.argv:
+    show_on_start = "--show" in sys.argv
+
+    # If another instance is already running, ask it to show the picker
+    # and exit immediately. Keep --check-assets independent.
+    if "--check-assets" not in sys.argv:
         if send_show_command():
             sys.exit(0)
-        # No running instance: start normally.
 
     # ── App setup ─────────────────────────────────────────────────
     # Force XCB on mixed environments (KDE Wayland with XWayland).
@@ -2176,6 +2178,9 @@ def main():
 
     signals.toggle_window.connect(toggle)
     signals.show_window.connect(lambda: (focus_tracker.capture(), picker.show_at_cursor()))
+
+    if show_on_start:
+        QTimer.singleShot(0, signals.show_window.emit)
 
     # ── Socket IPC ────────────────────────────────────────────────
     start_socket_server()
