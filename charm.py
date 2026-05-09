@@ -1884,7 +1884,7 @@ class TrayManager:
         menu_font.setPointSize(13)
         menu.setFont(menu_font)
 
-        open_a = menu.addAction(QIcon.fromTheme("go-up"), tr("tray_open"))
+        open_a = menu.addAction(QIcon.fromTheme("view-restore"), tr("tray_open"))
         open_a.triggered.connect(self._show)
         menu.addSeparator()
 
