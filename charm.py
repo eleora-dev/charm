@@ -126,8 +126,8 @@ def category_tooltip(category: str) -> str:
     return category_label(category)
 
 # Runtime font and pixmap cache
-SYMBOL_FONT: str = ""        # font for symbols/math/typography not covered by Twemoji
-_px_cache: dict = {}          # pre-rendered pixmap cache
+SYMBOL_FONT: str = ""  # font for symbols/math/typography not covered by Twemoji
+_px_cache: dict = {}  # pre-rendered pixmap cache
 
 
 def setup_symbol_font() -> str:
@@ -139,9 +139,9 @@ def setup_symbol_font() -> str:
     global SYMBOL_FONT
 
     candidates = [
-        "Noto Sans Symbols",      # zodiac, religious/gender signs, assorted symbols
-        "Noto Sans Symbols 2",    # monochrome emoji-symbols, dice, cards, technical signs
-        "Noto Sans Math",         # ℕ ℝ ∑ ⟵ etc.
+        "Noto Sans Symbols",  # zodiac, religious/gender signs, assorted symbols
+        "Noto Sans Symbols 2",  # monochrome emoji-symbols, dice, cards, technical signs
+        "Noto Sans Math",  # ℕ ℝ ∑ ⟵ etc.
         "DejaVu Sans",
         "Liberation Sans",
         "FreeSans",
@@ -170,7 +170,7 @@ def setup_symbol_font() -> str:
 
 # ── CONFIGURATION ─────────────────────────────────────────────────────────────
 
-CONFIG_DIR  = Path.home() / ".config" / "emojipicker"
+CONFIG_DIR = Path.home() / ".config" / "emojipicker"
 CONFIG_FILE = CONFIG_DIR / "config.json"
 RECENT_FILE = CONFIG_DIR / "recent.json"
 SOCKET_PATH = f"/tmp/emojipicker_{os.getuid()}.sock"
@@ -178,53 +178,53 @@ SOCKET_PATH = f"/tmp/emojipicker_{os.getuid()}.sock"
 SESSION_TYPE = os.environ.get("XDG_SESSION_TYPE", "x11").lower()
 
 DEFAULT_CONFIG = {
-    "hotkey":       APP_HOTKEY_CONFIG,
-    "btn_size":     42,
-    "grid_cols":    13,
-    "recent_max":   36,
-    "auto_paste":   True,
+    "hotkey": APP_HOTKEY_CONFIG,
+    "btn_size": 42,
+    "grid_cols": 13,
+    "recent_max": 36,
+    "auto_paste": True,
 }
 
 
 APP_THEME_LIGHT = {
-    "bg":                   "#ffffff",
-    "text":                 "#222222",
-    "nav_bg":               "#f5f5f5",
-    "nav_border":           "#e8e8e8",
-    "accent":               "#ffa726",
-    "accent_text":          "#ffffff",
-    "accent_shadow":        "rgba(0, 0, 0, 0.25)",
-    "btn_color":            "#222222",
-    "btn_hover_bg":         "#eeeeee",
-    "bg_alt":               "#fff3e0",
-    "text_alt":             "#222222",
-    "footer_bg":            "#1565d8",
-    "footer_text":          "#ffffff",
+    "bg": "#ffffff",
+    "text": "#222222",
+    "nav_bg": "#f5f5f5",
+    "nav_border": "#e8e8e8",
+    "accent": "#ffa726",
+    "accent_text": "#ffffff",
+    "accent_shadow": "rgba(0, 0, 0, 0.25)",
+    "btn_color": "#222222",
+    "btn_hover_bg": "#eeeeee",
+    "bg_alt": "#fff3e0",
+    "text_alt": "#222222",
+    "footer_bg": "#1565d8",
+    "footer_text": "#ffffff",
     "footer_link_hover_bg": "rgba(255, 255, 255, 0.15)",
-    "footer_divider":       "rgba(255, 255, 255, 0.35)",
-    "ctx_bg":               "#ffffff",
-    "ctx_border":           "#e0e0e0",
-    "ctx_shadow":           "rgba(0, 0, 0, 0.18)",
-    "ctx_text":             "#222222",
-    "ctx_separator":        "#e8e8e8",
-    "container_shadow":     "rgba(0, 0, 0, 0.15)",
+    "footer_divider": "rgba(255, 255, 255, 0.35)",
+    "ctx_bg": "#ffffff",
+    "ctx_border": "#e0e0e0",
+    "ctx_shadow": "rgba(0, 0, 0, 0.18)",
+    "ctx_text": "#222222",
+    "ctx_separator": "#e8e8e8",
+    "container_shadow": "rgba(0, 0, 0, 0.15)",
 }
 
 APP_THEME_DARK = {
     **APP_THEME_LIGHT,
-    "bg":               "#1e1e1e",
-    "text":             "#eeeeee",
-    "nav_bg":           "#252525",
-    "nav_border":       "#333333",
-    "btn_color":        "#bbbbbb",
-    "btn_hover_bg":     "#333333",
-    "bg_alt":           "#332514",
-    "text_alt":         "#eeeeee",
-    "ctx_bg":           "#252525",
-    "ctx_border":       "#383838",
-    "ctx_shadow":       "rgba(0, 0, 0, 0.50)",
-    "ctx_text":         "#eeeeee",
-    "ctx_separator":    "#383838",
+    "bg": "#1e1e1e",
+    "text": "#eeeeee",
+    "nav_bg": "#252525",
+    "nav_border": "#333333",
+    "btn_color": "#bbbbbb",
+    "btn_hover_bg": "#333333",
+    "bg_alt": "#332514",
+    "text_alt": "#eeeeee",
+    "ctx_bg": "#252525",
+    "ctx_border": "#383838",
+    "ctx_shadow": "rgba(0, 0, 0, 0.50)",
+    "ctx_text": "#eeeeee",
+    "ctx_separator": "#383838",
     "container_shadow": "rgba(0, 0, 0, 0.50)",
 }
 
@@ -497,7 +497,7 @@ def apply_card_shadow(card: QFrame) -> None:
 # ── EMOJI DATA BY CATEGORY ───────────────────────────────────────────────────
 
 EMOJI_DATA: dict[str, list[str]] = {
-    CATEGORY_RECENT: [],   # Filled at runtime
+    CATEGORY_RECENT: [],  # Filled at runtime
 
     CATEGORY_SMILEYS: [
         "😀","😃","😄","😁","😆","😅","🤣","😂","🙂","🙃","😉","😊","😇",
@@ -683,18 +683,18 @@ TWEMOJI_SPECIAL_FALLBACK_CHARS = set(
 )
 
 TAB_ICON_CANDIDATES = {
-    CATEGORY_RECENT:   ["⭐", "✨", "😀"],
-    CATEGORY_SMILEYS:  ["😀", "😃", "😊"],
-    CATEGORY_GESTURES:    ["👋", "👍", "👌"],
-    CATEGORY_HEARTS:   ["❤️", "💙", "💕"],
-    CATEGORY_ANIMALS:  ["🐱", "🐶", "🐼"],
-    CATEGORY_NATURE:   ["🌺", "🌸", "🌻"],
-    CATEGORY_FOOD:     ["🍕", "🍔", "🍎"],
-    CATEGORY_VEHICLES:  ["🚗", "🚀", "✈️"],
-    CATEGORY_SPORT:    ["⚽", "🏆", "🎮"],
-    CATEGORY_OBJECTS:  ["💻", "📱", "📦"],
-    CATEGORY_BASIC:    ["🔤", "⌨️", "✏️"],
-    CATEGORY_MATH:     ["🔢", "🧮", "⚙"],
+    CATEGORY_RECENT: ["⭐", "✨", "😀"],
+    CATEGORY_SMILEYS: ["😀", "😃", "😊"],
+    CATEGORY_GESTURES: ["👋", "👍", "👌"],
+    CATEGORY_HEARTS: ["❤️", "💙", "💕"],
+    CATEGORY_ANIMALS: ["🐱", "🐶", "🐼"],
+    CATEGORY_NATURE: ["🌺", "🌸", "🌻"],
+    CATEGORY_FOOD: ["🍕", "🍔", "🍎"],
+    CATEGORY_VEHICLES: ["🚗", "🚀", "✈️"],
+    CATEGORY_SPORT: ["⚽", "🏆", "🎮"],
+    CATEGORY_OBJECTS: ["💻", "📱", "📦"],
+    CATEGORY_BASIC: ["🔤", "⌨️", "✏️"],
+    CATEGORY_MATH: ["🔢", "🧮", "⚙"],
     CATEGORY_SPECIALS: ["🔣", "✨", "✔"],
 }
 
@@ -767,7 +767,7 @@ class RecentEmojis:
 
 class AppSignals(QObject):
     toggle_window = Signal()
-    show_window   = Signal()
+    show_window = Signal()
 
 signals = AppSignals()
 
@@ -1478,11 +1478,11 @@ class EmojiPickerWindow(QWidget):
 
     def __init__(self, cfg: Config, recent: RecentEmojis):
         super().__init__()
-        self.cfg    = cfg
+        self.cfg = cfg
         self.recent = recent
-        self._bs    = cfg["btn_size"]   # button size
-        self._cols  = cfg["grid_cols"]
-        self._auto  = cfg["auto_paste"]
+        self._bs = cfg["btn_size"]  # button size
+        self._cols = cfg["grid_cols"]
+        self._auto = cfg["auto_paste"]
         self._search_items: list[str] = []
 
         self._setup_window()
@@ -1781,10 +1781,10 @@ class EmojiPickerWindow(QWidget):
         if screen:
             sg = screen.availableGeometry()
             w, h = self.width(), self.height()
-            x = min(cursor.x(), sg.right()  - w - 8)
+            x = min(cursor.x(), sg.right() - w - 8)
             y = min(cursor.y(), sg.bottom() - h - 8)
             x = max(sg.left() + 8, x)
-            y = max(sg.top()  + 8, y)
+            y = max(sg.top() + 8, y)
             self.move(x, y)
 
         self.show()
@@ -1812,7 +1812,7 @@ class EmojiPickerWindow(QWidget):
 
 class HotkeyListener:
     def __init__(self, combo: str, callback):
-        self._combo    = combo
+        self._combo = combo
         self._callback = callback
 
     def start(self):
@@ -1853,9 +1853,9 @@ class HotkeyListener:
 
 class TrayManager:
     def __init__(self, app: QApplication, picker: EmojiPickerWindow):
-        self.app    = app
+        self.app = app
         self.picker = picker
-        self.tray   = QSystemTrayIcon()
+        self.tray = QSystemTrayIcon()
         self._build()
 
     # ── Icon ───────────────────────────────────────────────────────
@@ -1996,11 +1996,11 @@ def main():
         sys.exit(1)
 
     # ── Main objects ───────────────────────────────────────────────
-    cfg    = Config()
+    cfg = Config()
     recent = RecentEmojis(cfg["recent_max"])
     picker = EmojiPickerWindow(cfg, recent)
     picker.setWindowIcon(window_icon)
-    tray   = TrayManager(app, picker)
+    tray = TrayManager(app, picker)
 
     # Copied feedback when auto-paste is unavailable.
     def patched_handle(char: str):
