@@ -1530,17 +1530,17 @@ class charmWindow(QWidget):
         hdr.setSpacing(6)
 
         title_icon = QPushButton()
-        title_icon.setFixedSize(32, 32)
+        title_icon.setFixedSize(40, 40)
         title_icon.setFlat(True)
         title_icon.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         title_icon.setCursor(Qt.CursorShape.PointingHandCursor)
         title_icon.setToolTip(tr("title_icon_tooltip"))
         title_icon.setStyleSheet(icon_button_style())
 
-        title_px = app_header_icon_pixmap(28)
+        title_px = app_header_icon_pixmap(36)
         if not title_px.isNull():
             title_icon.setIcon(QIcon(title_px))
-            title_icon.setIconSize(QSize(28, 28))
+            title_icon.setIconSize(QSize(36, 36))
         else:
             title_icon.setText(APP_ICON_CHAR)
 
