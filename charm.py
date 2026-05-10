@@ -170,10 +170,10 @@ def setup_symbol_font() -> str:
 
 # ── CONFIGURATION ─────────────────────────────────────────────────────────────
 
-CONFIG_DIR = Path.home() / ".config" / "emojipicker"
+CONFIG_DIR = Path.home() / ".config" / "eleora-charm"
 CONFIG_FILE = CONFIG_DIR / "config.json"
 RECENT_FILE = CONFIG_DIR / "recent.json"
-SOCKET_PATH = f"/tmp/emojipicker_{os.getuid()}.sock"
+SOCKET_PATH = f"/tmp/eleora-charm_{os.getuid()}.sock"
 
 SESSION_TYPE = os.environ.get("XDG_SESSION_TYPE", "x11").lower()
 
@@ -1473,7 +1473,7 @@ def build_scroll_grid(emojis: list[str], cols: int, btn_size: int, on_click) -> 
 
 # ── PICKER WINDOW ────────────────────────────────────────────────────────────
 
-class EmojiPickerWindow(QWidget):
+class charmWindow(QWidget):
     emoji_chosen = Signal(str)
 
     def __init__(self, cfg: Config, recent: RecentEmojis):
@@ -1852,7 +1852,7 @@ class HotkeyListener:
 # ── SYSTEM TRAY ──────────────────────────────────────────────────────────────
 
 class TrayManager:
-    def __init__(self, app: QApplication, picker: EmojiPickerWindow):
+    def __init__(self, app: QApplication, picker: charmWindow):
         self.app = app
         self.picker = picker
         self.tray = QSystemTrayIcon()
@@ -1998,7 +1998,7 @@ def main():
     # ── Main objects ───────────────────────────────────────────────
     cfg = Config()
     recent = RecentEmojis(cfg["recent_max"])
-    picker = EmojiPickerWindow(cfg, recent)
+    picker = charmWindow(cfg, recent)
     picker.setWindowIcon(window_icon)
     tray = TrayManager(app, picker)
 
