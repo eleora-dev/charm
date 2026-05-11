@@ -37,11 +37,12 @@ except ImportError:
 
 # ── APP CONSTANTS ───────────────────────────────────────────────────────────
 
-DEV_NAME = "Eleòra"
-DEV_URL = "https://github.com/eleora-dev"
 APP_NAME = "CharM"
 APP_VERSION = "1.0"
-APP_COPYRIGHT = "© 2026 Gerardo Perilli"
+APP_YEAR = "2026"
+APP_AUTHOR = "Gerardo Perilli"
+APP_STUDIO = "Eleòra"
+DEV_URL = "https://github.com/eleora-dev"
 APP_HOTKEY_DISPLAY = "Ctrl+Alt+E"
 APP_HOTKEY_CONFIG = "<ctrl>+<alt>+e"
 APP_ICON_RESOURCE = ":/icons/charm.png"
@@ -55,9 +56,11 @@ SERVICE_LICENSE_URL = "https://eleora-dev.github.io/charm/LICENSE"
 SERVICE_ISSUES_URL = "https://github.com/eleora-dev/charm/issues"
 
 configure_locales(
-    DEV_NAME=DEV_NAME,
     APP_NAME=APP_NAME,
     APP_VERSION=APP_VERSION,
+    APP_YEAR=APP_YEAR,
+    APP_AUTHOR=APP_AUTHOR,
+    APP_STUDIO=APP_STUDIO,
     APP_VERSION_BASE=APP_VERSION.split("-", 1)[0],
     APP_HOTKEY_DISPLAY=APP_HOTKEY_DISPLAY,
     LOG_PREFIX=LOG_PREFIX,
@@ -191,14 +194,14 @@ APP_THEME_LIGHT = {
     "text": "#222222",
     "nav_bg": "#f5f5f5",
     "nav_border": "#e8e8e8",
-    "accent": "#ffa726",
+    "accent": "#fe9306",
     "accent_text": "#ffffff",
     "accent_shadow": "rgba(0, 0, 0, 0.25)",
     "btn_color": "#222222",
     "btn_hover_bg": "#eeeeee",
     "bg_alt": "#fff3e0",
     "text_alt": "#222222",
-    "footer_bg": "#1565d8",
+    "footer_bg": "#0161dc",
     "footer_text": "#ffffff",
     "footer_link_hover_bg": "rgba(255, 255, 255, 0.15)",
     "footer_divider": "rgba(255, 255, 255, 0.35)",
@@ -1536,6 +1539,7 @@ class charmWindow(QWidget):
         title_icon.setCursor(Qt.CursorShape.PointingHandCursor)
         title_icon.setToolTip(tr("title_icon_tooltip"))
         title_icon.setStyleSheet(icon_button_style())
+        title_icon.clicked.connect(lambda: QDesktopServices.openUrl(QUrl(DEV_URL)))
 
         title_px = app_header_icon_pixmap(36)
         if not title_px.isNull():
@@ -1629,7 +1633,7 @@ class charmWindow(QWidget):
         footer_font = self.font()
         footer_font.setPointSize(10)
 
-        copyright_label = QLabel(APP_COPYRIGHT)
+        copyright_label = QLabel(f"© {APP_YEAR} {APP_STUDIO} · {APP_AUTHOR}")
         copyright_label.setFont(footer_font)
         copyright_label.setAlignment(
             Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignVCenter

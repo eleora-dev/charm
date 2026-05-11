@@ -12,7 +12,9 @@ A lightweight emoji and special character picker for Linux/KDE.
 
 ## Screenshot
 
-![Main window](assets/screenshot.png)
+| Light | Dark |
+|---|---|
+| ![Light mode](assets/screenshot-light.png) | ![Dark mode](assets/screenshot-dark.png) |
 
 ---
 
@@ -64,9 +66,9 @@ A lightweight emoji and special character picker for Linux/KDE.
 
 * CharM runs as a tray application and does not quit when the picker window closes
 * Selecting an item copies the character to the clipboard
-* Recent characters are stored locally in `~/.config/emojipicker/recent.json`
-* Preferences are stored locally in `~/.config/emojipicker/config.json`
-* A per-user Unix socket in `/tmp/emojipicker_<uid>.sock` is used only to show the already-running instance when `--show` is called
+* Recent characters are stored locally in `~/.config/eleora-charm/recent.json`
+* Preferences are stored locally in `~/.config/eleora-charm/config.json`
+* A per-user Unix socket in `/tmp/eleora-charm_<uid>.sock` is used only to show the already-running instance when `--show` is called
 * No root privileges are required
 * No analytics, tracking or background network requests are performed
 

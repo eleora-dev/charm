@@ -7,7 +7,7 @@
 
   <style>
     :root {
-      --orange: #ffa726;
+      --orange: #fe9306;
       --text: #1a1a1a;
       --muted: #666;
       --border: #e8e8e8;
@@ -50,7 +50,7 @@
     .logo {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 18px;
       margin-bottom: 12px;
     }
 
@@ -61,12 +61,15 @@
 
     .brand-product {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      font-size: 30px;
-      font-weight: 700;
+      font-size: 28px;
+      font-weight: 650;
+      line-height: 2;
       color: var(--muted);
-      letter-spacing: 2px;
-      transform: translateY(3px);
-      margin-left: 8px;
+      letter-spacing: 0.2px;
+      margin-left: 0;
+      padding-left: 18px;
+      border-left: 2px solid var(--orange);
+      transform: translateY(5px);
     }
 
     .meta {
@@ -112,6 +115,7 @@
 
     a {
       color: var(--orange);
+      text-decoration: none;
     }
 
     code {
@@ -318,10 +322,7 @@
 </main>
 
 <footer>
-  <p>Eleòra CharM · Gerardo Perilli ·
-    <a href="mailto:gerardo.perilli@gmail.com">email</a> ·
-    <a href="https://github.com/eleora-dev/charm" target="_blank" rel="noopener noreferrer">GitHub</a>
-  </p>
+  <p>Eleòra CharM · <a href="https://github.com/eleora-dev" target="_blank" rel="noopener noreferrer">GitHub</a></p>
 </footer>
 
 </body>
